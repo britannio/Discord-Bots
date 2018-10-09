@@ -1,6 +1,6 @@
 # Work with Python 3.6
 import discord
-import confidentials
+from conf import confidentials
 
 client = discord.Client()
 

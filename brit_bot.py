@@ -1,10 +1,9 @@
 # Work with Python 3.6
-import discord
 import random
 import asyncio
 import aiohttp
 import json
-import confidentials
+from conf import confidentials
 from discord import Game
 from discord.ext.commands import Bot
 
@@ -34,6 +33,13 @@ async def eight_ball(context):
 async def square(number):
     squared_value = int(number) * int(number)
     await client.say(str(number) + " squared is " + str(squared_value))
+
+@client.command()
+async def repeat(*message):
+    new_message = ""
+    for arg in message:
+        new_message = new_message + arg
+    await client.say(new_message)
 
 
 @client.command()
