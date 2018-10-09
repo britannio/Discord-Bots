@@ -8,11 +8,8 @@ import confidentials
 from discord import Game
 from discord.ext.commands import Bot
 
-channel_id = confidentials.channel_id
-channel_object = discord.Object(id=channel_id)
-
 BOT_PREFIX = "."
-TOKEN = confidentials.TOKEN  # Get at discordapp.com/developers/applications/me
+TOKEN = confidentials.BRIT_BOT_TOKEN  # Get at discordapp.com/developers/applications/me
 
 client = Bot(command_prefix=BOT_PREFIX)
 
@@ -63,7 +60,7 @@ async def alert(context, msg, time):
     await client.say("Alerting you in: " + str(time) + " seconds")
     await asyncio.sleep(int(time))
     await client.say("**ALERT** " + context.message.author.mention + "\n" + str(msg).format(msg))
-    # await client.send_message(discord.Object(id='494204304148791306'), str(msg))
+
     
 
 @client.command()
