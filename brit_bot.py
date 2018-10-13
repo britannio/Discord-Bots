@@ -7,6 +7,8 @@ from conf import confidentials
 from discord import Game
 from discord.ext.commands import Bot
 
+CLIENT_ID = "494193521691983873"
+
 BOT_PREFIX = "."
 TOKEN = confidentials.BRIT_BOT_TOKEN  # Get at discordapp.com/developers/applications/me
 
@@ -35,11 +37,19 @@ async def square(number):
     await client.say(str(number) + " squared is " + str(squared_value))
 
 @client.command()
-async def repeat(*message):
+async def repeat(*message): #*args demonstration
     new_message = ""
     for arg in message:
         new_message = new_message + arg
     await client.say(new_message)
+
+@client.command()
+async def xor(**kwargs): #**kwargs demonstration
+
+
+    for key,value in kwargs.items():
+        print()
+
 
 
 @client.command()
@@ -94,5 +104,9 @@ async def list_servers():
         await asyncio.sleep(600)
 
 
-client.loop.create_task(list_servers())
-client.run(TOKEN)
+def start():
+    print("Brit Bot started")
+    '''client.loop.create_task(list_servers())
+    client.run(TOKEN)'''
+
+start()
